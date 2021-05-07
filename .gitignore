@@ -1,0 +1,8 @@
+
+*.o
+
+pizzaDelivery/bin/Debug/
+
+*.layout
+
+*.depend

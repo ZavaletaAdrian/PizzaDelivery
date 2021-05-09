@@ -1,8 +1,11 @@
-#include "Cola.h"
+//#include "Cola.h"
 #include <iostream>
-#include "Nodo.h"
+//#include "Nodo.h"
 #include <stdlib.h>
-#include "Grafo.h"
+//#include "Grafo.h"
+#include "../include/Cola.h"
+#include "../include/Nodo.h"
+#include "../include/Grafo.h"
 
 using namespace std;
 

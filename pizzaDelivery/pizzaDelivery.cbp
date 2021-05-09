@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Cola.h" />
+		<Unit filename="include/Grafo.h" />
+		<Unit filename="include/Nodo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Cola.cpp" />
+		<Unit filename="src/Grafo.cpp" />
+		<Unit filename="src/Nodo.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

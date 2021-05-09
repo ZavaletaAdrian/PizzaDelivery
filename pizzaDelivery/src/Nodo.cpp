@@ -1,4 +1,5 @@
-#include "Nodo.h"
+//#include "Nodo.h"
+#include "../include/Nodo.h"
 
 Nodo::Nodo(string d){
 }

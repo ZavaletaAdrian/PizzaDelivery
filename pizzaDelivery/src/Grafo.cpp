@@ -99,25 +99,24 @@ void Grafo::generaGrafo(string archGrafo) {
 		/**Calcula el peso de los nodos*/
 		peso = atoi(t.c_str());
 		if (ren != -1 && col != -1)
-			matAdy[ren][col] = peso;
-
-
-			/** GENERAR EL RECORRIDO DE LOS NODOS*/
-//			int V = 5;
-//    //int V; cuantas aristas
-//    Grafo::addEdge(0,1,7);
-//    Grafo::addEdge(0,4,6);
-//    Grafo::addEdge(1,2,9);
-//    Grafo::addEdge(1,3,-3);
-//    Grafo::addEdge(2,0,2);
-//    Grafo::addEdge(2,3,7);
-//    Grafo::addEdge(3,4,-2);
-//    Grafo::addEdge(4,1,8);
-//    Grafo::addEdge(4,2,-4);
-//    Grafo::addEdge(4,3,5);
-//
-//    Grafo::bellmanFord(2);
+        {
+            matAdy[ren][col] = peso;
+        }
 	}
+		/** GENERAR EL RECORRIDO DE LOS NODOS*/
+    //int V; cuantas aristas
+    Graph(numNodos);
+    addEdge(0,1,7);
+    addEdge(0,4,6);
+    addEdge(1,2,9);
+    addEdge(1,3,-3);
+    addEdge(2,0,2);
+    addEdge(2,3,7);
+    addEdge(3,4,-2);
+    addEdge(4,1,8);
+    addEdge(4,2,-4);
+    addEdge(4,3,5);
+    bellmanFord(2);
 }
 //OUTPUT
 /**Muestra la lista de los nodos*/

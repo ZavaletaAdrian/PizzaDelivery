@@ -105,18 +105,18 @@ void Grafo::generaGrafo(string archGrafo) {
 	}
 		/** GENERAR EL RECORRIDO DE LOS NODOS*/
     //int V; cuantas aristas
-    Graph(numNodos);
-    addEdge(0,1,7);
-    addEdge(0,4,6);
-    addEdge(1,2,9);
-    addEdge(1,3,-3);
-    addEdge(2,0,2);
-    addEdge(2,3,7);
-    addEdge(3,4,-2);
-    addEdge(4,1,8);
-    addEdge(4,2,-4);
-    addEdge(4,3,5);
-    bellmanFord(2);
+//    Graph(numNodos);
+//    addEdge(0,1,7);
+//    addEdge(0,4,6);
+//    addEdge(1,2,9);
+//    addEdge(1,3,-3);
+//    addEdge(2,0,2);
+//    addEdge(2,3,7);
+//    addEdge(3,4,-2);
+//    addEdge(4,1,8);
+//    addEdge(4,2,-4);
+//    addEdge(4,3,5);
+//    bellmanFord(2);
 }
 //OUTPUT
 /**Muestra la lista de los nodos*/

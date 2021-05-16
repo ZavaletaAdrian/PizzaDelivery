@@ -5,6 +5,8 @@
 #include <stdlib.h>
 //#include "Grafo.h"
 #include "include/Grafo.h"
+#include <limits.h>
+#include <stdio.h>
 
 /**
 NOTA: Si te aparecen el SRC y los HEADERS en el MANEJADOR DEL PROYECTO

@@ -25,5 +25,6 @@ int main()
 	g->generaGrafo("grafo.txt");
 	g->muestraListaNodos();
 	g->muestraGrafo();
+	g->ingresarNodos();
 	cout << endl;
 }

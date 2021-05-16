@@ -68,7 +68,7 @@ void Grafo::generaListaNodos(char *archGrafo) {
     ren = Renglón de la matriz
     col = Columna de la matriz
 */
-void Grafo::generaGrafo(string archGrafo) {
+int Grafo::generaGrafo(string archGrafo) {
     /**Lee el archivo txt*/
 	ifstream archivo(archGrafo.c_str());
 	string s, o, d, t;
@@ -108,7 +108,7 @@ void Grafo::generaGrafo(string archGrafo) {
             matAdy[ren][col] = peso;
         }
 	}
-	ingresarNodos(**matAdy[9]);
+	return **matAdy;
 		/** GENERAR EL RECORRIDO DE LOS NODOS*/
     //int V; cuantas aristas
 //    Graph(numNodos);
@@ -154,7 +154,7 @@ int Grafo::buscaPosicion(string calle) {
 }
 
 /**RECORRIDO DE DIJSKTRA*/
-void ingresarNodos(int **matAdy){
+void Grafo::ingresarNodos(){
     cout << "BIENVENIDO AL RECORRIDO, POR FAVOR INGRESE 3 NODOS PARA RECORRER, UNO A LA VEZ" << endl;
     int temp;
     int nodosRecor[3];
@@ -164,17 +164,16 @@ void ingresarNodos(int **matAdy){
         nodosRecor[i] = temp;
     }
     cout << endl;
-    recorrido(nodosRecor, **matAdy);
+    recorrido(nodosRecor);
 }
-void recorrido(int nodosRecor[], int **matAdy){
+void Grafo::recorrido(int nodosRecor[]){
     int suma = 0;
     cout << "El recorrido a seguir es : " << nodosRecor[0] << ", " <<  nodosRecor[1] << ", " << nodosRecor[2] << endl;
     /*dijkstra(graph, 0);
     printSolution(dis);*/
     int nodoAct = 0;
-
 	for (int a=0;a<3;a++){
-        dijkstra(**matAdy, nodoAct);
+        dijkstra(matAdy, nodoAct);
         cout << "Del nodo " << nodoAct << " al nodo " << nodosRecor[a] << " hay un peso de ";
         nodoAct = nodosRecor[a];
         int temp = nodosRecor[a];
@@ -194,7 +193,7 @@ void recorrido(int nodosRecor[], int **matAdy){
 }
 // Function that implements Dijkstra's single source shortest path algorithm
 // for a graph represented using adjacency matrix representation
-void dijkstra(int **matAdy, int src)
+void Grafo::dijkstra(int **matAdy, int src)
 {
 	int dist[V]; // The output array. dist[i] will hold the shortest
 	// distance from src to i
@@ -235,7 +234,7 @@ void dijkstra(int **matAdy, int src)
         dis[i] = dist[i];
 	}
 }
-int minDistance(int dist[], bool sptSet[])
+int Grafo::minDistance(int dist[], bool sptSet[])
 {
 	// Initialize min value
 	int min = INT_MAX, min_index;
@@ -248,7 +247,7 @@ int minDistance(int dist[], bool sptSet[])
 }
 
 // A utility function to print the constructed distance array
-void printSolution(int dist[])
+void Grafo::printSolution(int dist[])
 {
 	printf("Vertex \t\t Distance from Source\n");
 	for (int i = 0; i < V; i++)

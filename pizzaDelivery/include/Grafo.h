@@ -20,19 +20,18 @@ public:
 	Grafo(char *nomArch);
 	void muestraGrafo();
 	void generaListaNodos(char *nomArch);
-	void generaGrafo(string nomArch);
+	int generaGrafo(string nomArch);
 	void muestraListaNodos();
 	int buscaPosicion(string calle);
 //	int BellmanFordRecorr(Nodo *lista,int numNodos, int numAst);
 //    Graph(int V);
 //    void addEdge(int u,int v,int w);
 //    void bellmanFord(int src);
-    void ingresarNodos(int **matAdy);
-    void recorrido(int nodosRecor[], int **matAdy);
+    void ingresarNodos();
+    void recorrido(int nodosRecor[]);
     void dijkstra(int **matAdy, int src);
     int minDistance(int dist[], bool sptSet[]);
     void printSolution(int dist[]);
-
 };
 
 #endif // GRAFO_H

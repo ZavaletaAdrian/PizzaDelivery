@@ -184,59 +184,59 @@ void Grafo::recorrido(int nodosRecor[]){
         cout << endl;
     }
     cout << "EL PESO TOTAL FUE DE : " << suma << endl;
-    if (suma < 30){
-        cout << "Tienes que pagar" << endl;
+    if (suma < 25){
+        cout << "Cobra la pizza" << endl;
     }else{
-        cout << "Es gratis" << endl;
+        cout << "Es gratis la pizza" << endl;
     }
 
 }
-// Function that implements Dijkstra's single source shortest path algorithm
-// for a graph represented using adjacency matrix representation
+
+/**Una función que implementa el recorrido del algoritmo de Dijkstra
+representado por una matriz de adyacencia*/
 void Grafo::dijkstra(int **matAdy, int src)
 {
-	int dist[V]; // The output array. dist[i] will hold the shortest
-	// distance from src to i
+	int dist[V]; /** La matriz de salida. dist[i] contendrá la
+	distancia más corta desde src hasta i*/
 
-	bool sptSet[V]; // sptSet[i] will be true if vertex i is included in shortest
-	// path tree or shortest distance from src to i is finalized
+	bool sptSet[V]; /** sptSet[i] será verdadero si el vértice i está incluido en el
+	árbol del camino más corto o la distancia más corta de src a i está finalizada */
 
-	// Initialize all distances as INFINITE and stpSet[] as false
+	/** Inicializa todas las distancias como INFINITO y stpSet[] como falso*/
 	for (int i = 0; i < V; i++)
 		dist[i] = INT_MAX, sptSet[i] = false;
 
-	// Distance of source vertex from itself is always 0
+	/** La distancia del vértice de origen a sí mismo es siempre 0 */
 	dist[src] = 0;
 
-	// Find shortest path for all vertices
+	/** Encontrar el camino más corto para todos los vértices */
 	for (int count = 0; count < V - 1; count++) {
-		// Pick the minimum distance vertex from the set of vertices not
-		// yet processed. u is always equal to src in the first iteration.
+		/** Elige el vértice de mínima distancia del conjunto de vértices aún no procesados La variable "u" es siempre igual a src en la primera iteración.*/
 		int u = minDistance(dist, sptSet);
 
-		// Mark the picked vertex as processed
+		/** Marcar el vértice elegido como procesado */
 		sptSet[u] = true;
 
-		// Update dist value of the adjacent vertices of the picked vertex.
+		/** Actualiza el valor de dist de la adyacencia de vertices de el vértice elegido*/
 		for (int v = 0; v < V; v++)
 
-			// Update dist[v] only if is not in sptSet, there is an edge from
-			// u to v, and total weight of path from src to v through u is
-			// smaller than current value of dist[v]
+                /** Actualizar dist[v] sólo si no está en sptSet,
+                hay una arista de "u" a "v", y el peso total de la ruta de "src" a "v"
+                a través de "u" es menor que el valor actual de "dist[v]"*/
 			if (!sptSet[v] && matAdy[u][v] && dist[u] != INT_MAX
 				&& dist[u] + matAdy[u][v] < dist[v])
 				dist[v] = dist[u] + matAdy[u][v];
 	}
 
-	// print the constructed distance array
-	//printSolution(dist);
+	/** Imprimir la matriz de distancia construida
+	printSolution(dist);**/
 	for (int i=0;i<9;i++){
         dis[i] = dist[i];
 	}
 }
 int Grafo::minDistance(int dist[], bool sptSet[])
 {
-	// Initialize min value
+	/**Inicializa el valor minimo*/
 	int min = INT_MAX, min_index;
 
 	for (int v = 0; v < V; v++)
@@ -246,58 +246,10 @@ int Grafo::minDistance(int dist[], bool sptSet[])
 	return min_index;
 }
 
-// A utility function to print the constructed distance array
+/** Una función de utilidad para imprimir la matriz de distancia construida */
 void Grafo::printSolution(int dist[])
 {
-	printf("Vertex \t\t Distance from Source\n");
+	printf("Vértice \t\t Distancia desde la salida\n");
 	for (int i = 0; i < V; i++)
 		printf("%d \t\t %d\n", i, dist[i]);
 }
-
-
-
-/**RECORRIDO DE  BELLMAN FORD*/
-
-//Grafo::Graph(int V){
-//    this->V = V;
-//}
-//void Grafo::addEdge(int u,int v,int w){
-//     //edges.push_back(make_pair(w,make_pair(u,v)));
-//    edges.push_back({w,{u,v}});
-//}
-//void Grafo::bellmanFord(int src){
-//    //arreglo de distancias seteado inicialmente como infinito
-//    vector<int> dist(this->V,INF);
-//    //la distancia a si mismo debe ser 0
-//    dist[src] = 0;
-//    vector<pair<int,pair<int,int> > >::iterator it;
-//
-//    for(int i=1;i<this->V;i++){
-//        for(it = edges.begin();it!=edges.end();++it){
-//            int u = it->second.first;
-//            int v = it->second.second;
-//            int w = it->first;
-//             //Relajacion de las aristas
-//            if(dist[u] + w < dist[v]){
-//                dist[v] = dist[u] + w;
-//            }
-//        }
-//    }
-//        //¿Quedó alguna arista sin relajardespués de las V*E relajaciones?
-//        // Quiere decir que el grafo tiene ciclos internos de peso negativo, el algoritmo Bellman Ford no funcionará correctamente.
-//    for(it = edges.begin();it!=edges.end();++it){
-//        int u = it->second.first;
-//        int v = it->second.second;
-//        int w = it->first;
-//        if(dist[u] + w < dist[v]){
-//            this->hasNegativeCycle = true;
-//            //return false
-//        }
-//    }
-//        //Imprime todas las distancias desde el origen hasta todos los vertices.
-//    if(!hasNegativeCycle){
-//        for(int i=0;i<V;i++){
-//            cout << i << " - " << dist[i] << endl;
-//        }
-//    }
-//}

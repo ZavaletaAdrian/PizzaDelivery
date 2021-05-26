@@ -7,7 +7,7 @@
 #define V 9
 class Grafo
 {
-    int dis[9];
+    int *dis;
 	Nodo *lista;
 	int **matAdy;
 	int numNodos;

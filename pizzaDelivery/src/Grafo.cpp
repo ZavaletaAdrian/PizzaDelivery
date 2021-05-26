@@ -35,6 +35,7 @@ Grafo::Grafo(char *archGrafo)
 	cout << numNodos << endl;
 	/**Crea un arreglo con el nombre de "lista" y el tamaño de "numNodos"*/
 	lista = new Nodo[numNodos];
+	dis = new int[numNodos];
 	/**Se crea una matriz de adyascencia para comprobar la conexión entre
 	los nodos*/
 	matAdy = new int*[numNodos];
@@ -195,14 +196,14 @@ void Grafo::recorrido(int nodosRecor[]){
 representado por una matriz de adyacencia*/
 void Grafo::dijkstra(int **matAdy, int src)
 {
-	int dist[V]; /** La matriz de salida. dist[i] contendrá la
-	distancia más corta desde src hasta i*/
+	int dist[numNodos];  /**La matriz de salida. dist[numNodos] contendrá la
+	distancia más corta desde src hasta numNodos*/
 
-	bool sptSet[V]; /** sptSet[i] será verdadero si el vértice i está incluido en el
+	bool sptSet[numNodos]; /** sptSet[i] será verdadero si el vértice i está incluido en el
 	árbol del camino más corto o la distancia más corta de src a i está finalizada */
 
 	/** Inicializa todas las distancias como INFINITO y stpSet[] como falso*/
-	for (int i = 0; i < V; i++)
+	for (int i = 0; i < numNodos; i++)
 		dist[i] = INT_MAX, sptSet[i] = false;
 
 	/** La distancia del vértice de origen a sí mismo es siempre 0 */
@@ -217,7 +218,7 @@ void Grafo::dijkstra(int **matAdy, int src)
 		sptSet[u] = true;
 
 		/** Actualiza el valor de dist de la adyacencia de vertices de el vértice elegido*/
-		for (int v = 0; v < V; v++)
+		for (int v = 0; v < numNodos; v++)
 
                 /** Actualizar dist[v] sólo si no está en sptSet,
                 hay una arista de "u" a "v", y el peso total de la ruta de "src" a "v"
@@ -238,7 +239,7 @@ int Grafo::minDistance(int dist[], bool sptSet[])
 	/**Inicializa el valor minimo*/
 	int min = INT_MAX, min_index;
 
-	for (int v = 0; v < V; v++)
+	for (int v = 0; v < numNodos; v++)
 		if (sptSet[v] == false && dist[v] <= min)
 			min = dist[v], min_index = v;
 
@@ -249,6 +250,6 @@ int Grafo::minDistance(int dist[], bool sptSet[])
 void Grafo::printSolution(int dist[])
 {
 	printf("Vértice \t\t Distancia desde la salida\n");
-	for (int i = 0; i < V; i++)
+	for (int i = 0; i < numNodos; i++)
 		printf("%d \t\t %d\n", i, dist[i]);
 }

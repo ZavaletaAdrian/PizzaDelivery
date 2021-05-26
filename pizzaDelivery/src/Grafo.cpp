@@ -101,7 +101,6 @@ int Grafo::generaGrafo(string archGrafo) {
 		}
 		ren = buscaPosicion(o);
 		col = buscaPosicion(d);
-		/**Calcula el peso de los nodos*/
 		peso = atoi(t.c_str());
 		if (ren != -1 && col != -1)
         {
@@ -155,10 +154,10 @@ int Grafo::buscaPosicion(string calle) {
 
 /**RECORRIDO DE DIJSKTRA*/
 void Grafo::ingresarNodos(){
-    cout << "BIENVENIDO AL RECORRIDO, POR FAVOR INGRESE 3 NODOS PARA RECORRER, UNO A LA VEZ" << endl;
+    cout << "BIENVENIDO AL RECORRIDO, POR FAVOR INGRESE 4 NODOS PARA RECORRER, UNO A LA VEZ" << endl;
     int temp;
-    int nodosRecor[3];
-    for (int i=0;i<3;i++){
+    int nodosRecor[4];
+    for (int i=0;i<4;i++){
         cout <<  "INGRESE EL NODO" << endl;
         cin >> temp;
         nodosRecor[i] = temp;
@@ -168,11 +167,11 @@ void Grafo::ingresarNodos(){
 }
 void Grafo::recorrido(int nodosRecor[]){
     int suma = 0;
-    cout << "El recorrido a seguir es : " << nodosRecor[0] << ", " <<  nodosRecor[1] << ", " << nodosRecor[2] << endl;
+    cout << "El recorrido a seguir es : " << nodosRecor[0] << ", " <<  nodosRecor[1] << ", " << nodosRecor[2] << ", " << nodosRecor[3] << endl;
     /*dijkstra(graph, 0);
     printSolution(dis);*/
     int nodoAct = 0;
-	for (int a=0;a<3;a++){
+	for (int a=0;a<4;a++){
         dijkstra(matAdy, nodoAct);
         cout << "Del nodo " << nodoAct << " al nodo " << nodosRecor[a] << " hay un peso de ";
         nodoAct = nodosRecor[a];
@@ -183,8 +182,8 @@ void Grafo::recorrido(int nodosRecor[]){
         printSolution(dis);
         cout << endl;
     }
-    cout << "EL PESO TOTAL FUE DE : " << suma << endl;
-    if (suma < 25){
+    cout << "EL PESO DE MINUTOS TOTALES FUE DE : " << suma << endl;
+    if (suma < 15){
         cout << "Cobra la pizza" << endl;
     }else{
         cout << "Es gratis la pizza" << endl;
